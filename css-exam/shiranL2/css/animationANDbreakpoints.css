@@ -1,0 +1,64 @@
+::-webkit-scrollbar {
+  height: 10px;
+  cursor: pointer;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #383737;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(26, 30, 37);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #181818;
+  height: 150px;
+}
+
+@-webkit-keyframes backgroundAn {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes backgroundAn {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+@-webkit-keyframes wapperAn {
+  from {
+    background-color: pink;
+  }
+  to {
+    background-color: rgb(134, 6, 28);
+  }
+}
+@keyframes wapperAn {
+  from {
+    background-color: pink;
+  }
+  to {
+    background-color: rgb(134, 6, 28);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .wapper {
+    border-radius: 10px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wapper {
+    border-radius: 20px;
+  }
+}/*# sourceMappingURL=animationANDbreakpoints.css.map */

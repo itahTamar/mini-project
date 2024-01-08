@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background-image: url("https://thumbs.dreamstime.com/b/tourist-couple-vector-illustration-happy-mid-age-western-backpack-shopping-bag-52408386.jpg");
+  background-size: cover;
+  background-color: #f0d0b4;
+  background-position: center;
+  height: 100vh;
+}
+.wrapper .div-title {
+  padding: 0 4% 4% 4%;
+  padding-top: 50px;
+}
+.wrapper .div-title .div-title__title {
+  color: #25161b;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.wrapper .div-title .div-title__p {
+  color: #947764;
+  font-size: 0.8rem;
+}
+.wrapper .bottom-div {
+  position: absolute;
+  bottom: 2%;
+  width: 100%;
+}
+.wrapper .bottom-div .cta {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  translate: calc(-50%);
+  min-width: 85%;
+  display: flex;
+  padding: 2%;
+  align-items: center;
+  justify-content: start;
+  gap: 5%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 15px;
+}
+.wrapper .bottom-div .cta .cta__swipe-btn {
+  float: left;
+  background-color: black;
+  padding: 5% 10%;
+  color: white;
+  border-radius: 15px;
+}
+.wrapper .bottom-div .cta .cta__swipe-btn .swipe-p {
+  display: none;
+}
+.wrapper .bottom-div .cta .cta__swipe-btn .swipe {
+  height: 2rem;
+  width: 2rem;
+}
+.wrapper .bottom-div .privacy-policy {
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+  .wrapper .div-title .div-title__title {
+    font-size: 3rem;
+  }
+  .wrapper .div-title .div-title__p {
+    font-size: 1rem;
+  }
+  .wrapper .bottom-div {
+    position: absolute;
+    bottom: 2%;
+    width: 100%;
+  }
+  .wrapper .bottom-div .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    translate: calc(-50%);
+    min-width: 25%;
+    padding: 2%;
+  }
+  .wrapper .bottom-div .cta .cta-p {
+    display: none;
+  }
+  .wrapper .bottom-div .cta .cta__swipe-btn {
+    float: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 5% 10%;
+    color: white;
+    border-radius: 15px;
+  }
+  .wrapper .bottom-div .cta .cta__swipe-btn .swipe-p {
+    display: block;
+  }
+  .wrapper .bottom-div .cta .cta__swipe-btn .swipe {
+    display: none;
+  }
+  .wrapper .bottom-div .privacy-policy {
+    color: black;
+    text-align: center;
+  }
+}

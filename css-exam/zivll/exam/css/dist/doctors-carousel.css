@@ -1,0 +1,42 @@
+.doctors-carousel {
+  overflow: hidden;
+  display: flex;
+  padding: 0 2% 0 2%;
+  gap: 4%;
+}
+
+.card {
+  margin-bottom: 5rem;
+  border-radius: 10px;
+  position: relative;
+  background-color: #fff;
+  min-width: 25%;
+  padding: 2%;
+}
+.card__title {
+  color: #1c7ed6;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.card__desc {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+.card__click-me-corner {
+  cursor: pointer;
+  background-image: linear-gradient(to left, #1c7ed6, #1864ab);
+  position: absolute;
+  border-radius: 20px;
+  right: -12%;
+  bottom: -12%;
+  padding: 7%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.card__click-me-corner--chevron-right {
+  stroke: #fff;
+  height: 22px;
+  width: 22px;
+}

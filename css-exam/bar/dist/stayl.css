@@ -1,0 +1,203 @@
+.wrapper {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  background-color: #f3f3f3;
+  min-width: 25em;
+  height: 92vh;
+  margin: auto;
+  border-radius: 20px;
+  padding: 20px;
+}
+.wrapper .uptitle {
+  position: relative;
+}
+.wrapper .uptitle .save {
+  position: relative;
+  float: right;
+  color: #00059c;
+}
+.wrapper .haeder {
+  position: relative;
+  font-size: larger;
+}
+.wrapper .staar {
+  position: relative;
+  display: flex;
+}
+.wrapper .staar .staars {
+  position: relative;
+  top: 1.5vh;
+  color: #cfb80c;
+}
+.wrapper .staar h4 {
+  position: relative;
+  left: 1em;
+  top: -0.5vh;
+  margin-right: 0.5em;
+}
+.wrapper .staar p {
+  position: relative;
+  left: 1em;
+  color: #959595;
+}
+.wrapper .imgs {
+  display: flex;
+  width: 780px;
+}
+.wrapper .imgs .img {
+  position: absolute;
+  background-size: cover;
+  width: 380px;
+  height: 35vh;
+  margin: auto;
+  border-radius: 20px;
+}
+.wrapper .imgs .img .namber {
+  position: relative;
+  top: 30vh;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.464);
+  width: 3em;
+  height: 2.5vh;
+  border-radius: 20px;
+}
+.wrapper .imgs .img .namber p {
+  color: white;
+  position: relative;
+  top: 0.3vh;
+  left: 0.3em;
+}
+.wrapper .imgs .img1 {
+  position: absolute;
+  background-image: url(./img/villa1.jpeg);
+}
+.wrapper .imgs .img2 {
+  position: absolute;
+  left: 25.5em;
+  background-image: url(./img/vila2.jpg);
+}
+.wrapper .imgs .img3 {
+  position: absolute;
+  left: 50em;
+  background-image: url(./img/villa3.jpg);
+}
+.wrapper .imgs .img4 {
+  position: absolute;
+  left: 74.5em;
+  background-image: url(./img/villa4.jpg);
+}
+.wrapper .gps {
+  position: relative;
+  top: 35vh;
+  width: 200px;
+  display: flex;
+}
+.wrapper .gps .loc {
+  position: relative;
+  top: 2.5vh;
+  left: 0.5em;
+  color: #cfb80c;
+}
+.wrapper .gps p {
+  position: relative;
+  top: 1vh;
+  color: #535353;
+  left: 1em;
+}
+.wrapper .features {
+  color: #3c3c3c;
+}
+.wrapper .sabs {
+  position: relative;
+  top: 35vh;
+  display: flex;
+  gap: 0.5em;
+  color: white;
+  text-align: center;
+}
+.wrapper .sabs__sab1 {
+  position: relative;
+  background-color: #1e1ef3;
+  width: 16em;
+  height: 4vh;
+  border-radius: 20px;
+  display: flex;
+}
+.wrapper .sabs__sab1 h4 {
+  position: relative;
+  top: -1vh;
+  left: 0.5em;
+}
+.wrapper .sabs__sab1 .icon {
+  position: relative;
+  top: 1vh;
+  left: 0.2em;
+}
+.wrapper .sabs__sab2 {
+  position: relative;
+  background-color: #1e81f3;
+  width: 16em;
+  height: 4vh;
+  border-radius: 20px;
+  display: flex;
+}
+.wrapper .sabs__sab2 h4 {
+  position: relative;
+  top: -1vh;
+  left: 0.5em;
+}
+.wrapper .sabs__sab2 .icon {
+  position: relative;
+  top: 1vh;
+  left: 0.2em;
+}
+.wrapper .sabs__sab3 {
+  position: relative;
+  background-color: #ff6200;
+  width: 16em;
+  height: 4vh;
+  border-radius: 20px;
+  display: flex;
+}
+.wrapper .sabs__sab3 h4 {
+  position: relative;
+  top: -1vh;
+  left: 0.5em;
+}
+.wrapper .sabs__sab3 .icon {
+  position: relative;
+  top: 1vh;
+  left: 0.2em;
+}
+.wrapper .prais {
+  position: relative;
+  top: 37vh;
+  background-color: #e2e208;
+  width: 380px;
+  height: 6vh;
+  margin: auto;
+  border-radius: 12px;
+}
+.wrapper .prais h3 {
+  color: #1b1b1b;
+  position: relative;
+  top: 1.5vh;
+  text-align: center;
+}
+@media only screen and (min-width: 900px) {
+  .wrapper .wrapper {
+    min-width: 900px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .wrapper .wrapper {
+    min-width: 1200px;
+  }
+  .wrapper .sabs {
+    display: block;
+  }
+  .wrapper .sabs__sab2 {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+}

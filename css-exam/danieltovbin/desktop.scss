@@ -1,0 +1,139 @@
+
+.title {
+    border: 2px solid linear-gradient(90deg, rgba(43,134,190,1) 26%, rgba(217,255,85,1) 100%, rgba(0,176,218,1) 100%, rgba(0,212,255,1) 100%, rgba(9,9,121,1) 100%);
+    border-radius: 12px;
+    height: 286px;
+    background: linear-gradient(90deg, rgba(43,134,190,1) 26%, rgba(217,255,85,1) 100%, rgba(0,176,218,1) 100%, rgba(0,212,255,1) 100%, rgba(9,9,121,1) 100%);
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 73px;
+
+        h1 {
+            color: white;
+        }
+
+        i {
+            border: 1px solid white;
+            border-radius: 16px;
+            background-color: white;
+            padding: 6px 8px;
+        }
+    }
+    &__boxes {
+        display: flex;
+        justify-content: space-around;
+
+        &__box {
+            border: 1px solid white;
+            max-width: 158px;
+            text-align: center;
+            background-color: white;
+            border-radius: 12px;
+
+            h2{
+                color: rgb(52, 52, 153);
+                margin-bottom: 0;
+            }
+
+            p{
+                color: gray;
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        border: 2px solid white;
+        width: 662px;
+        align-items: center;
+        margin-left: 300px;
+        margin-top: 18px;
+        position: absolute;
+        border-radius: 12px;
+        background-color: white;
+        line-height: 10px;
+
+        i {
+            width: 83px;
+            font-size: 44px;
+            text-align: center;
+        
+        }
+
+        h2{
+            color: rgb(52, 52, 153);
+        }
+
+        p{
+            color: gray;
+        }
+
+    }
+
+}
+
+.options{
+    display: flex;
+    margin-top: 36px;
+    border: 1px solid gray;
+    justify-content: center;
+    border-radius: 57px;
+
+    &__option {
+        p{
+            color: white;
+        }
+        &--one {
+            border: 2px solid rgb(56, 56, 163);
+            border-radius: 19px;
+            background-color:rgb(56, 56, 163) ;
+            width: 100%;
+            text-align: center;
+        }
+
+        &--two {
+            border: 2px solid gray;
+            border-radius: 19px;
+            background-color:gray ;
+            text-align: center;
+            width: 100%
+        }
+        }
+
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 47px;
+            margin-right: 7px;
+        }
+
+        &__info {
+            line-height: 1px;
+        }
+
+    }
+
+    article {
+        display: flex;
+        width: 55%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-left: 230px;
+        margin-top: 50px;
+    }
+   
+
+
+    // @media only screen and (max-width:600px) {
+
+    // }
+        
+    

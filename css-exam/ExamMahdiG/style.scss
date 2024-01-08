@@ -1,0 +1,132 @@
+.html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    width: auto;
+
+    flex-direction: row;
+  }
+
+  .footer{
+    display: flex;
+    bottom: 0;
+  }
+  
+  .search-box {
+    position: relative;
+    align-items: center;
+margin-left: 50%;  }
+  
+  .search-box input {
+    padding: 5px;
+    border-radius: 15px;
+    margin-left: 70%;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: 30%;
+    border-radius: 30px;
+    margin:15px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    // margin-bottom: 20px;
+  }
+  
+  .animation {
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 50%;
+  }
+  
+  .btn {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+
+  h1{
+    font-size: 22px;
+  }
+  
+  .cart-icon {
+    position: relative;
+  }
+  
+  .cart-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 3px;
+    border-radius: 50%;
+    animation: cart-animation 1s infinite;
+  }
+
+  .main-header{
+    background: red;
+  }
+  
+  @keyframes cart-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .row{
+    display: flex;
+    margin-left: 50%;
+  }
+  .row:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column{
+    float: left;
+  }
+  .button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccc;
+    border-radius: 30px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .button.active{
+    background-color: #007bff;
+    width: 90%;
+  }

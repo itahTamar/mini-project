@@ -1,0 +1,194 @@
+*{
+    margin-top: 0%;
+    padding: 0%;
+}
+$primery_color: #02102b;
+$primery_font: 'Assistant', sans-serif;
+
+@media only screen and (max-width: 600px){
+.section{ 
+    height: 120vh;
+    max-width: 420px;
+    border: solid 1px grey;
+    display: block;
+    justify-content: center;
+    margin: auto;
+    border-radius: 25px;
+    margin-top: 10px;}
+}
+@media only screen and (min-width:600px){
+    .section{ 
+        height: 120vh;
+        max-width: 1500px;
+        border: solid 1px grey;
+        display: block;
+        justify-content: center;
+        margin: auto;
+        border-radius: 25px;
+        margin-top: 10px;}
+    }
+    @media only screen and (max-width: 600px){
+    .header{
+        height: 10vh;
+        display: flex;
+        margin: auto;
+        justify-content: stretch;
+        align-items: center;
+        padding-top:25px; 
+        background-color: #ffffff;
+        width: 400px;
+        border-radius: 40px 40px 0px 0px ;
+    }
+
+    }
+    @media only screen and (min-width: 600px){
+        .header{
+            height: 10vh;
+            display: flex;
+            margin: auto;
+            justify-content: stretch;
+            align-items: center;
+            padding-top:25px; 
+            background-color: #ffffff;
+            max-width: 1200px;
+            border-radius: 40px 40px 0px 0px ;
+        }
+    }
+    
+    .menu{
+        height: 5vh;
+        display: flex;
+        padding-left: 25px;
+    }
+    .lighat{
+        margin-left: 200px;
+        margin-right: 10px;
+        
+    }
+    
+    
+.main{
+    display: block;
+        margin: auto;
+        justify-content: stretch;
+        align-items: center;
+        padding-top:25px; 
+        background-color: white;
+        width: 400px;
+        .Discover{
+            display: flex;
+            justify-content: center;
+            font-family: $primery_font;
+            color:$primery_color;
+             
+        }
+        .article{
+            color:rgb(156, 156, 156);
+
+        }
+        .wrapper{
+            display: flex;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        padding-top: 25px;
+        }
+        .men{
+            width: 80px;
+            height: 80px;
+            
+        }
+        .catogry{
+            background-color: #ffffff;
+            padding: 10px 20px 10px 20px ;
+            font-family: $primery_font;
+            font-weight: 700;
+            color:$primery_color;
+            border: 1px grey solid;
+            border-radius: 50px;
+            margin-left: 5px;
+            &:hover{
+                background-color:$primery_color;
+                border: none;
+                box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.119),0 17px 50px 0 rgba(0,0,0,0.19);
+                color: white;
+            }
+
+
+        }
+              
+
+}
+.blog{
+    display: grid;
+    margin: auto;
+    grid-template-rows: repeat( 2 350px);
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    padding-top:25px; 
+    padding-left: 50px;
+    background-color: white;
+    width: 355px;
+    .img__horizntal{
+        width: 150px;
+        height: 90px;
+        border-radius: 9px;
+    }
+    .img__bottom{
+        width: 150px;
+        height: 200px;
+        border-radius: 9px;
+        margin-top: 30px;
+        
+        
+
+        
+
+    }
+    .img__top{
+        width: 150px;
+        height: 230px;
+        border-radius: 9px;
+        margin-top: -100px;
+    }
+    .img__horizntal__sec{
+        width: 150px;
+        height: 90px;
+        border-radius: 9px;
+        margin-top: 30px;
+
+    }
+.title{
+    font-family: $primery_font;
+    font-size: 15px;
+    margin: 0%;
+    padding: 0%;
+
+}
+.date{
+    font-family: $primery_font;
+    font-size: 15px;
+    color: rgb(183, 183, 183);
+    margin: 0%;
+    padding: 0%;
+}
+    .person{
+       border-radius: 23px;
+       height: 65px;
+       width: 65px;
+       border: 1px solid transparent;
+       &:hover{
+        border: 0px solid transparent;
+
+          }
+       
+}}
+.nav{
+     height: 10vh;
+display: flex;
+margin: auto;
+justify-content: center;
+align-items: center;
+background-color: #ffffff;
+gap: 30px;
+}

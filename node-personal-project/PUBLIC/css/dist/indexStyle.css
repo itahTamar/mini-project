@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+  padding: auto;
+  background-image: url("https://t4.ftcdn.net/jpg/02/09/10/27/360_F_209102761_kZuhHqFsVf4mCmPdH4t2udPl1Pj5mWNM.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+a {
+  font-size: 20px;
+}
+
+h1 {
+  color: green;
+  font-size: 50px;
+}
+
+h2 {
+  color: limegreen;
+  font-size: 35px;
+}

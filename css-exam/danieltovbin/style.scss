@@ -1,0 +1,11 @@
+@import 'desktop';
+@import 'tablet';
+@import 'mobile';
+
+
+.wrapper{
+    max-width: 97%;
+    height: 43rem;
+    padding: 0px 20px;
+    text-transform: capitalize;
+}

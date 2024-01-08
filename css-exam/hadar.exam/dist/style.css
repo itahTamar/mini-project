@@ -1,0 +1,189 @@
+.wrapper {
+  font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu;
+}
+.wrapper .box {
+  background: #2a6ec9;
+  background: linear-gradient(90deg, #2a6ec9 10%, #65d169 100%);
+  border-radius: 2vw;
+  overflow: hidden;
+}
+.wrapper .box__h1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2vw;
+  font-size: 4vw;
+}
+.wrapper .box__h1 h1 {
+  color: white;
+}
+.wrapper .box__h1 i {
+  color: #2a6ec9;
+  background-color: white;
+  border-radius: 50%;
+  padding: 2vw;
+}
+.wrapper .box__2 {
+  display: flex;
+  margin-bottom: 15vw;
+}
+.wrapper .box__2__3 {
+  background-color: white;
+  margin: 2vw;
+  padding-left: 3vw;
+  border-radius: 2vw;
+}
+.wrapper .box__2__3 h2 {
+  color: #2a6ec9;
+  font-size: 4vw;
+}
+.wrapper .box__2__3 p {
+  color: gray;
+  font-size: 3vw;
+  padding-right: 10vw;
+  margin: 0;
+}
+.wrapper .box__2__3 i {
+  float: right;
+  font-size: 5vw;
+  font-weight: bolder;
+  background-color: #2a6ec9;
+  border-bottom-left-radius: 2vw;
+  border-top-left-radius: 2vw;
+  color: white;
+  padding: 2vw 4vw 2vw 4vw;
+  margin-bottom: 0;
+  margin-left: 25vw;
+}
+.wrapper .telemedicine {
+  display: flex;
+  background-color: white;
+  border-radius: 2vw;
+  align-items: center;
+  padding-left: 4vw;
+  margin: 2vw;
+  margin-top: -10vw;
+  box-shadow: 0vw 0.2vw 10vw black;
+}
+.wrapper .telemedicine__icon {
+  font-size: 10vw;
+  margin-right: 4vw;
+}
+.wrapper .telemedicine__text--h2 {
+  color: #2a6ec9;
+  font-size: 4vw;
+}
+.wrapper .telemedicine__text--p {
+  color: gray;
+  font-size: 3vw;
+}
+.wrapper .buttons {
+  display: flex;
+  justify-content: center;
+  border-radius: 30vw;
+  margin: 2vw;
+  margin-top: 4vw;
+  background-color: #cbc9c9;
+}
+.wrapper .buttons--focus {
+  border: none;
+  border-radius: 30vw;
+  width: 50vw;
+  padding: 2vw;
+  font-size: 4vw;
+  color: gray;
+  background-color: #cbc9c9;
+}
+.wrapper .buttons--focus:focus {
+  background-color: #2a6ec9;
+  color: white;
+}
+.wrapper .options {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  margin: 2vw;
+}
+.wrapper .options__option {
+  display: flex;
+  align-items: center;
+}
+.wrapper .options__option--icon {
+  font-size: 70px;
+  margin-right: 4vw;
+}
+.wrapper .options__option__text--p1 {
+  font-size: 22px;
+  color: #00003d;
+}
+.wrapper .options__option__text--p1 i {
+  color: #66d169;
+  font-weight: bolder;
+}
+.wrapper .options__option__text--p2 {
+  color: gray;
+  font-size: 18px;
+}
+@media only screen and (max-width: 1510px) {
+  .wrapper .options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .wrapper .options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper .options {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+}
+.wrapper .nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fcfafa;
+  position: static;
+}
+.wrapper .nav__opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #c1bdbd;
+  position: relative;
+  padding: 2vw;
+}
+.wrapper .nav__opt p {
+  position: absolute;
+  bottom: 5vw;
+  left: 4.5vw;
+  background-color: #2a6ec9;
+  padding: 0.5vw 1vw;
+  border-radius: 50%;
+  color: white;
+  font-size: 2vw;
+  animation: mes 2s infinite;
+}
+@keyframes mes {
+  0% {
+    padding: 0.5vw 1vw;
+  }
+  50% {
+    padding: 1vw 1.5vw;
+  }
+  100% {
+    padding: 0.5vw 1vw;
+  }
+}
+.wrapper .nav__opt i {
+  font-size: 4vw;
+}
+.wrapper .nav__opt--sp {
+  color: #2a6ec9;
+}

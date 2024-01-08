@@ -1,0 +1,21 @@
+.wrapper {
+  display: grid;
+  gap: 5px;
+  grid-template-rows: repeat(4, 200px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "white black white black" "white black white black" "white black white black" "white black white black";
+}
+.wrapper .line__white {
+  grid-area: white;
+  background-color: navy;
+  color: rgb(183, 74, 74);
+}
+.wrapper .line__black {
+  grid-area: black;
+  background-color: navy;
+  color: rgb(209, 85, 85);
+}
+
+body {
+  background-color: aquamarine;
+}/*# sourceMappingURL=style.css.map */

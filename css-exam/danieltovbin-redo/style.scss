@@ -1,0 +1,31 @@
+@import 'top-part';
+@import 'bottom-part';
+
+
+body {
+    width: 90vw;
+    height: 100vh;
+    padding: 12px 48px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+
+@media only screen and (max-width:1200px) {
+    article {
+        .all-services__three{
+            display: none;
+        }
+    }
+}
+@media only screen and (max-width:600px) {
+    article {
+        .all-services__two, .all-services__three{
+            display: none;
+        }
+    }
+} 
