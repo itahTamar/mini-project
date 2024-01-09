@@ -1,0 +1,23 @@
+/* DogCard.css */
+
+.dog-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dog-img {
+    width: 100%;
+    max-height: 100px; /* Adjust the max height as needed */
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  .dog-info {
+    text-align: left;
+  }
+  
