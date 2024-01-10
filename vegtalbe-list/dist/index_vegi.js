@@ -68,24 +68,14 @@ function renderVegetableCard(vegetable) {
     try {
         //if we want to edit the card we check if the edit btn were clicked, when clicked turn isEdit=trou
         if (vegetable.isEdit) {
-<<<<<<< HEAD
-=======
-            if (vegetable.image === ' ') {
-                vegetable.image = "https://cdn.carmella.co.il/wp-content/uploads/2020/11/9012.jpg" >
-                ;
-            }
->>>>>>> 739c24e868222afd020880edb0b95cbe98262c5d
             //we want to change the DOM to an edit-form
             return "<div class=\"card\">\n                        <img src=\"" + vegetable.image + "\">\n                        <form onsubmit=\"handleSetEdit(event)\" id=\"" + vegetable.id + "\">\n                            <input type=\"text\" name=\"name\" value=\"" + vegetable.name + "\">\n                            <input type=\"url\" name=\"image\" value=\"" + vegetable.image + "\">\n                            <input type=\"number\" name=\"quantity\" value=\"" + vegetable.quantity + "\">                          \n                            <br>\n                            <button onclick=\"hendelDelet('" + vegetable.id + "')\">Delet</button>\n                            <input type=\"submit\" value=\"SET\">\n                        </form>\n                    </div> ";
         }
         else {
             //when not in edit mode
-<<<<<<< HEAD
-            // if(vegetable.image === ' '){
-            //     vegetable.image = "https://cdn.carmella.co.il/wp-content/uploads/2020/11/9012.jpg">
-            // }
-=======
->>>>>>> 739c24e868222afd020880edb0b95cbe98262c5d
+            if (vegetable.image === ' ') {
+                vegetable.image = "https://cdn.carmella.co.il/wp-content/uploads/2020/11/9012.jpg";
+            }
             return "<div class=\"card\">\n                        <img src=\"" + vegetable.image + "\">\n                        <p>" + vegetable.name + "</p>\n                        <p><button onclick=\"handelquntityMinosOne('" + vegetable.id + "')\">-</button>\n                        " + vegetable.quantity + "\n                        <button onclick=\"handelquntityPlusOne('" + vegetable.id + "')\">+</button></p>\n                        <button onclick=\"hendelDelete('" + vegetable.id + "')\">Delet</button>\n                        <button onclick=\"handelEdit('" + vegetable.id + "')\">Edit</button>\n                    </div>";
         }
     }
