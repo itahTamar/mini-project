@@ -152,6 +152,10 @@ body {
 .categories {
   margin-top: 100px;
 }
+.categories__header {
+  position: absolute;
+  left: 5rem;
+}
 .categories__header__services {
   border: 1px solid gray;
   border-radius: 20px;
