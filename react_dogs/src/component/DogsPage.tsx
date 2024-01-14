@@ -44,13 +44,13 @@ const DogsPage = () => {
     }, [])
 
     return (
+        <>
+        <Debouncing setFilterDogs={setFilterDogs} dogs={dogs} />
         <div className="dog-container">
-            {/* in props: setFilteredDogs */}
-            <Debouncing setFilterDogs={setFilterDogs} dogs={dogs} />
             {dogs && dogs.length > 0 ?
                 (filterDogs.map((dog) => {
                     return (
-                        <div key={dog.breed}>
+                        <div key={dog.breed} className="cardWrapper">
                             <DogCard dog={dog} />
                             <button onClick={() => { navigate(`/dog/${dog.breed}`) }}>More Info</button>
                         </div>
@@ -60,6 +60,7 @@ const DogsPage = () => {
                 )}
 
         </div>
+        </>
     )
 }
 

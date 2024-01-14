@@ -25,17 +25,8 @@ const Debouncing = ({ setFilterDogs, dogs }: any) => {
 
     return (
         <div>
-            <input type="text" value={text} onInput={(ev) => setText((ev.target as HTMLInputElement).value)} placeholder="search by breed" />
+            <input id="serch" type="text" value={text} onInput={(ev) => setText((ev.target as HTMLInputElement).value)} placeholder="search by breed" />
             <br></br>
-            {/* {
-                text != '' ?
-                    <div>
-                        {filterDogs.map((dog) => {
-                            return <DogCard key={dog.breed} dog={dog} />
-                        })}
-                    </div> :
-                    null
-            } */}
         </div >
     )
 }

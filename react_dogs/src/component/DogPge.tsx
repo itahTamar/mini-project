@@ -3,18 +3,17 @@ import ChatBox from './ChatBox';
 import '../style/chatBox.css';
 import 'stream-chat-react/dist/css/v2/index.css';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Dog } from './DogsPage';
 import { getDogBreed } from './../api/dogsApi';
 import { useEffect, useState } from "react";
 
 const DogPge = () => {
-    // const [dogBreed, setBreed] = useState('');
     const [dataDog, setDataDog] = useState<Dog>();
     let { breed } = useParams();
+    const navigate = useNavigate()
 
     useEffect(() => {
-
-        // setBreed(breed);
 
         const specificDog = async () => {
             if (breed == undefined) throw new Error("the breed in DogPge is undefined!");
@@ -37,6 +36,7 @@ const DogPge = () => {
         <div>
             <DogCard key={breed} dog={dataDog} />
             <ChatBox />
+            <button onClick={() => { navigate(`/`) }}>Back</button>
         </div>
     );
 };
