@@ -167,7 +167,7 @@ function renderTimeClock(timeCloceArr: TimeClock[], timeClockWorker: TimeClock, 
             <td>${calculatHours(element.entaryTime,element.exitTime)}</td>
             <td>
                 <button onclick=editTimeClock(${element.id}, ${timeClockWorker}, ${document.querySelector("#editTime")})>Edit</button>
-                <button onclick=deleteTimeClock(${element.id}, ${timeClockWorker})>Delete</button>
+                <button onclick=deleteTimeClock(${element.id}, ${timeClockWorker}, ${document.querySelector('#timeClock')})>Delete</button>
             </td>
            </tr>`
         });
@@ -210,8 +210,9 @@ function editTimeClock(id: any, timeClockWorker: TimeClock, rootElement: HTMLEle
         <input type="datetime-local" id="entryInput" value="${timeClockEntry.entaryTime}">
         <label for="exitInput">Exit Time:</label>
         <input type="datetime-local" id="exitInput" value="${timeClockEntry.exitTime}">
-        <button onclick=updateTimeClock(${timeClockEntry.id},${timeClockWorker})>Update</button>
-        <button onclick=cancelEdit()>Cancel</button>
+     
+    <!-- <button onclick="updateTimeClock('${timeClockEntry.id}', ${timeClockWorker}, ${rootElement})")>Update</button>
+    <button onclick="cancelEdit()">Cancel</button>  -->
       `;
 
             if (!rootElement) throw new Error("no root elemant");
@@ -226,8 +227,14 @@ function editTimeClock(id: any, timeClockWorker: TimeClock, rootElement: HTMLEle
 function updateTimeClock(entryId: any, timeClockWorker: TimeClock) {
     try {
 
-        const updatedEntry = document.querySelector("#entryInput").value;
+   //!problam     
+    const entryInput = document.querySelector("#entryInput")
+    if (entryInput === null) throw new Error("entryInput = null");
+        const updatedEntry = entryInput.value;
+
         const updatedExit = document.querySelector("#exitInput").value;
+        if (updatedExit === null) throw new Error("updatedExit = null");
+    //!end    
 
         // Perform the necessary update based on the user input
         const entryToUpdate = timeCloceArr.find(entry => entry.id === entryId);
@@ -237,7 +244,14 @@ function updateTimeClock(entryId: any, timeClockWorker: TimeClock) {
         }
 
         // Remove the htmlModel dialog
-        document.body.removeChild(htmlModel);
+        // document.body.removeChild(htmlModel);
+
+        // Clear the content of the root element
+          const rootElement = document.querySelector("#timeClock");
+            if (rootElement) {
+                  rootElement.innerHTML = '';
+            }
+        
 
         // Render the updated time clock table
         renderTimeClock(timeCloceArr, timeClockWorker, document.querySelector("#timeClock"));
@@ -248,11 +262,17 @@ function updateTimeClock(entryId: any, timeClockWorker: TimeClock) {
 }
 function cancelEdit() {
     // Remove the htmlModel dialog
-    document.body.removeChild(htmlModel);
+    // document.body.removeChild(htmlModel);
+
+    // Clear the content of the root element
+        const rootElement = document.querySelector("#timeClock");
+        if (rootElement) {
+            rootElement.innerHTML = '';
+        }
 }
 
 
-function deleteTimeClock(id: any, timeClockWorker: TimeClock) {
+function deleteTimeClock(id: any, timeClockWorker: TimeClock, rootElement: HTMLElement | null) {
     // Find the index of the time clock entry in the array based on the provided ID
     const entryIndex = timeCloceArr.findIndex(entry => entry.id === id);
 
@@ -260,8 +280,15 @@ function deleteTimeClock(id: any, timeClockWorker: TimeClock) {
         // Remove the entry from the array
         timeCloceArr.splice(entryIndex, 1);
 
+         // Clear the content of the root element
+         if (rootElement) {
+            rootElement.innerHTML = '';
+        }
+
         // Render the updated time clock table
-        renderTimeClock(timeCloceArr, timeClockWorker, document.querySelector("#timeClock"));
+        // renderTimeClock(timeCloceArr, timeClockWorker, document.querySelector("#timeClock"));
+        renderTimeClock(timeCloceArr, timeClockWorker, rootElement);
+
     }
     
 }
