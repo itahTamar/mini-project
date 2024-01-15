@@ -12,12 +12,14 @@ app.use(express());
 app.use(cookieParser());
 
 import connection from './DB/database';
-import userRoutes from "./API/users/userRoutes"
-import booksRoutes from "./API/books/booksRoutes"
-import creationRouter from "./API/creation/creationRouter"
 
+import userRoutes from "./API/users/userRoutes"
 app.use('/api/users', userRoutes);
+
+import booksRoutes from "./API/books/booksRoutes"
 app.use('/api/books', booksRoutes);
+
+import creationRouter from "./API/creation/creationRouter"
 app.use('/api/creation', creationRouter)
 
 app.listen(PORT, () => {
