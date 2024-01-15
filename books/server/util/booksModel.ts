@@ -5,6 +5,5 @@ export interface Book {
     publisher: string,
     description: string,
     image: string,
-    likes: number,
     genre: string
 }

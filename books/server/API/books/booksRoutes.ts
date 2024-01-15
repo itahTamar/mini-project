@@ -5,10 +5,8 @@ import {getAllBooks , addAllBooks, createBook, addFavorite , sendFavorites, getO
 
 router
 .get("", getAllBooks)
-.get("/getFavorites" , sendFavorites)
 .post("/addBooks", createBook)
 .get("/:title", getOneBook) //<-- to get a specific book by its title
-.post("/addFavorite" , addFavorite)
 
 //good routing example :/api/users
 // .get("") <-- to get ALL users 
