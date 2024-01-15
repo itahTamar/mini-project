@@ -1,7 +1,6 @@
 import express from 'express';
 import cookieParser = require("cookie-parser")
-import userRoutes from "./API/users/userRoutes"
-import booksRoutes from "./API/books/booksRoutes"
+
 
 require('dotenv').config();
 
@@ -12,8 +11,14 @@ const PORT = process.env.PORT || 4000;
 app.use(express());
 app.use(cookieParser());
 
+import connection from './DB/database';
+import userRoutes from "./API/users/userRoutes"
+import booksRoutes from "./API/books/booksRoutes"
+import creationRouter from "./API/creation/creationRouter"
+
 app.use('/api/users', userRoutes);
 app.use('/api/books', booksRoutes);
+app.use('/api/creation', creationRouter)
 
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);

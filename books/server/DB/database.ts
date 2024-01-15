@@ -1,6 +1,7 @@
 import  mysql  from 'mysql2';
 
 const sqlpassword = process.env.SQLPASSWORD;
+console.log(sqlpassword)
 
 const connection = mysql.createConnection({
     host: "localhost",
