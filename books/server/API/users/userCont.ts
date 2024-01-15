@@ -6,14 +6,15 @@ const saltRounds = 10;
 
 import mysql from 'mysql2/promise';
 
-async function createDatabaseAndTables(): Promise<void> {
+async function createSchemaAndTables(): Promise<void> {
+
   try {
     // Create a new database if it doesn't exist
-    await connection.query('CREATE SCHEMA IF NOT EXISTS my_books');
-    await connection.query('USE my_books');
+    connection.query('CREATE SCHEMA IF NOT EXISTS my_books');
+    connection.query('USE my_books');
 
     // Create a users table for storing information about users
-    await connection.query(`
+    connection.query(`
         CREATE TABLE IF NOT EXISTS my_books.users 
         (
         user_id INT NOT NULL AUTO_INCREMENT,
@@ -27,11 +28,11 @@ async function createDatabaseAndTables(): Promise<void> {
         );
 
     // Create a books table for storing information about books
-    await connection.query(`
+    connection.query(`
     CREATE TABLE IF NOT EXISTS my_books.books (
         book_id INT NOT NULL AUTO_INCREMENT,
         title VARCHAR(45) NOT NULL,
-        aothor VARCHAR(45) NOT NULL,
+        author VARCHAR(45) NOT NULL,
         publisher VARCHAR(45) NULL,
         description VARCHAR(450) NOT NULL,
         image VARCHAR(45) NOT NULL,
@@ -45,13 +46,13 @@ async function createDatabaseAndTables(): Promise<void> {
   } catch (error) {
     console.error('Error creating database and tables:', error);
   } finally {
-    await connection.end();
+    connection.end();
   }
 }
 
 // Call the function to create the database and table
 //! myme no in here
-createDatabaseAndTables();
+createSchemaAndTables();
 
 export async function registerUser(req: any, res: any) {
     try {

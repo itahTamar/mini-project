@@ -1,7 +1,7 @@
 import express from "express"
 const router = express.Router()
 
-import {getAllBooks , addAllBooks, createBook, addFavorite , sendFavorites, getOneBook} from "./booksCont"
+import {getAllBooks , addAllBooks, createBook, getOneBook} from "./booksCont"
 
 router
 .get("", getAllBooks)

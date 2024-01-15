@@ -52,6 +52,7 @@ export async function getAllBooks(req: express.Request, res: express.Response) {
 
 export async function createBook(req: express.Request, res: express.Response) {
     try {
+        //@ts-ignore
         const { title, author, pageNum, publisher, description, image, genre } = req.body
         if (!title || !author || !image) throw new Error("no data in FUNCTION createAllBook in file booksCtrl.ts")
 
@@ -63,7 +64,7 @@ export async function createBook(req: express.Request, res: express.Response) {
                 res.status(409).send({ ok: false, message: "Book already exists" });
             }
             else {
-                const query = `INSERT INTO book.books (title, author, pageNum, publisher, description, image, likes,genre) VALUES ('${title}', '${author}', ${pageNum}, '${publisher}', "${description}", '${image}', ${likes} , '${genre}');`;
+                const query = `INSERT INTO book.books (title, author, pageNum, publisher, description, image,genre) VALUES ('${title}', '${author}', ${pageNum}, '${publisher}', "${description}", '${image}', '${genre}');`;
                 connection.query(query, (err, results) => {
                     try {
                         if (err) throw err;
@@ -98,4 +99,4 @@ export async function getOneBook(req: express.Request, res: express.Response) {
         res.status(500).send({ ok: false, error })  //closer - without it the error could stack in loop
     }
 }
-    }}
+    
