@@ -2,10 +2,6 @@ import express from 'express'
 import connection from '../../DB/database'
 import { books } from "../../util/books"
 
-import jwt from 'jwt-simple';
-
-const saltRounds = 10;
-
 export async function getAllBooks(req: express.Request, res: express.Response) {
     try {
         const query = "SELECT * FROM my_books.books"
