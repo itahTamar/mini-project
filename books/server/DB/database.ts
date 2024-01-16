@@ -1,14 +1,12 @@
 import  mysql  from 'mysql2';
 
 const sqlpassword = process.env.SQLPASSWORD;
-console.log(sqlpassword)
 
 const connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
     password: sqlpassword,
-    database: "my_books"
 })
 
 connection.connect((err) => {

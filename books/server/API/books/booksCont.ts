@@ -8,7 +8,7 @@ const saltRounds = 10;
 
 export async function getAllBooks(req: express.Request, res: express.Response) {
     try {
-        const query = "SELECT * FROM my_books.books"
+        const query = "SELECT * FROM books"
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err
