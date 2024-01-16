@@ -1,0 +1,3 @@
+for creating a SQL DB do the next steps:
+1) POST request -> http://localhost:4000/api/create-database
+2) POST request -> http://localhost:4000/api/create-book-table

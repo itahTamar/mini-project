@@ -1,11 +1,14 @@
 import express from "express"
 const router = express.Router()
 
-import {getAllBooks, addOneBook, getOneBook} from "./booksCont"
+import {getAllBooks, addOneBook, getOneBook, updateBook, deleteBook, findBookByName} from "./booksCont"
 
 router
 .get("", getAllBooks)
-.post("/addBooks", addOneBook)
+.post("/addBook", addOneBook)
 .get("/:title", getOneBook) //<-- to get a specific book by its title
+.patch("/:bookId", updateBook)
+.delete("/:bookId", deleteBook)
+.get("/filter", findBookByName)
 
 export default router
