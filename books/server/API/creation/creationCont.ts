@@ -2,13 +2,25 @@ import mysql from 'mysql2/promise';
 import express from 'express';
 import connection from '../../DB/database';
 
-export default async function createSchemaAndTables(req: express.Request, res: express.Response) {
+export default async function createDBAndTables(req: express.Request, res: express.Response) {
   try {
     // const query = `SELECT table_name FROM information_schema.tables WHERE table_name = 'books' AND table_schema = 'my_books';`
 
     // Create a new database if it doesn't exist
-    connection.query('CREATE SCHEMA IF NOT EXISTS my_books');
-    connection.query('USE my_books');
+    try {
+      //should be for admin only
+      const {adminPassword} = req.body;
+      if (!adminPassword) throw new Error("no admin password in create database");
+      if (adminPassword === "123456") {
+          const query = "CREATE DATABASE IF NOT EXISTS my_books"
+          connection.query(query, (err, results) => {
+              if (err) throw err;
+              res.send({ok: true, message: "DB created!"})
+          })
+      }
+    } catch (error) {
+      res.status(500).send({ok: false, error})
+    }
 
     // Create a users table for storing information about users
     connection.query(`

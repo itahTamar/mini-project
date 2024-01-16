@@ -18,10 +18,10 @@ app.post("/api/create-database", (req, res) => {
         const {adminPassword} = req.body;
         if (!adminPassword) throw new Error("no admin password in create database");
         if (adminPassword === "123456") {
-            const query = "CREATE DATABASE my_books"
+            const query = "CREATE DATABASE IF NOT EXISTS my_books"
             connection.query(query, (err, results) => {
                 if (err) throw err;
-                res.send({ok: true, message: "DB created!"})
+                res.send({ok: true, message: "book table created!"})
             })
         }
         
@@ -30,6 +30,31 @@ app.post("/api/create-database", (req, res) => {
     }
 })
 
+//!not working
+// app.post("/api/create-book-table", (req, res) => {
+//     try {
+//          //should be for admin only
+//          const {adminPassword} = req.body;
+//          if (!adminPassword) throw new Error("no admin password in create database");
+//          if (adminPassword === "123456") {
+//             const queryBooks = `CREATE TABLE IF NOT EXISTS my_books.books(
+//                 book_id INT NOT NULL AUTO_INCREMENT,
+//                 title VARCHAR(45) NOT NULL,
+//                 author VARCHAR(45) NOT NULL,
+//                 publisher VARCHAR(45) NULL,
+//                 description VARCHAR(4500) NOT NULL,
+//                 image VARCHAR(45) NOT NULL,
+//                 genre VARCHAR(45) NULL,
+//                 PRIMARY KEY (book_id),
+//                 UNIQUE INDEX book_id_UNIQUE (book_id ASC) VISIBLE,
+//                 UNIQUE INDEX title_UNIQUE (title ASC) VISIBLE);
+//                 ); `
+//          }
+//     } catch (error) {
+//         res.status(500).send({ok: false, error}) 
+//     }
+// })
+
 
 import userRoutes from "./API/users/userRoutes"
 app.use('/api/users', userRoutes);
@@ -37,8 +62,8 @@ app.use('/api/users', userRoutes);
 import booksRoutes from "./API/books/booksRoutes"
 app.use('/api/books', booksRoutes);
 
-import creationRouter from "./API/creation/creationRouter"
-app.use('/api/creation', creationRouter)
+// import creationRouter from "./API/creation/creationRouter"
+// app.use('/api/creation', creationRouter)
 
 
 
