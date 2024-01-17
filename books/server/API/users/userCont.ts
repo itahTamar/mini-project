@@ -42,7 +42,6 @@ export async function registerUser(req: Request, res: Response) {
     }
 } //work ok
 
-//!please check if cookie works
 export async function login(req: Request, res: Response) {
     try {
         const {email, password} = req.body;
