@@ -16,12 +16,6 @@ interface BookCardProp {
 }
 
 const BookCard: FC<BookCardProp> = ({ book }) => {
-    const [like, setLike] = useState<number>(0)
-
-    const handelAddLike = () => {
-        setLike(like +1)
-        console.log("At boon card like state:",like)
-    }
 
     return (
         <>
@@ -30,10 +24,8 @@ const BookCard: FC<BookCardProp> = ({ book }) => {
                     <img className='book-card-img' src={book.image} alt={book.title}/>
                     <div className='book-card-info'>
                         <h2>{book.title}</h2>
-                        <p>{book.description}</p>
-                        <a onClick={handelAddLike}>👍{book.likes}</a>
-                    </div>
-
+                        <p>{book.description}</p>                      
+                    </div>               
                 </div>  
                 :
                 <p>book undefine</p>  
