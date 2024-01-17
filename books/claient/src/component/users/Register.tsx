@@ -13,13 +13,18 @@ const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         ev.preventDefault()
         const data = await register(username, email, password)
         console.log(data)
+        
+        // Reset form fields
+        setUsername('');
+        setEmail('');
+        setPassword('');
     } catch (error) {
         console.error(error)
     }
 }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="registerForm" onSubmit={handleSubmit}>
         <input type='text' name='username' autoComplete='given-name' placeholder='User Name' value={username} onInput={(ev) => setUsername((ev.target as HTMLInputElement).value)}></input>
         <input type='email' name='email' autoComplete='given-name' placeholder='Email' value={email} onInput={(ev) => setEmail((ev.target as HTMLInputElement).value)}></input>
         <input type='password' name='password' autoComplete='off' placeholder='Password' value={password} onInput={(ev) => setPassword((ev.target as HTMLInputElement).value)}></input>
