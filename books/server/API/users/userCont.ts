@@ -42,14 +42,13 @@ export async function registerUser(req: Request, res: Response) {
     }
 } //work ok
 
-
-//!not working
+//!please check if cookie works
 export async function login(req: Request, res: Response) {
     try {
         const {email, password} = req.body;
         if (!email || !password) throw new Error("no data at login user");
         
-        const query = `SELECT * FROM my_books.users WHERE email = ${email}`;
+        const query = `SELECT * FROM my_books.users WHERE email = "${email}"`;
         if (!query) throw new Error("at login, No query provided for user login");       
 
         connection.query(query, async (err, results) => {
@@ -85,4 +84,4 @@ export async function login(req: Request, res: Response) {
     } catch (error) {
         res.status(500).send({ok: false, error})
     }
-}
+} //work ok

@@ -133,20 +133,17 @@ export async function deleteBook(req: express.Request, res: express.Response) {
     }
 } //work ok
 
-//!not working
 //for the debouncing search (get)
 export async function findBookByName(req: express.Request, res: express.Response) {
     try {
         const {title} = req.query;
         if (!title) throw new Error("no title");
 
-        console.log("the title:", title)
-
         // {X}% - have to start with x and end with something
         // %{x} - start with something and end with x
         // %{x}% - search everything that may have x in it
 
-        const queryFind = `SELECT * FROM my_books.books WHERE title LIKE "${title}%"`
+        const queryFind = `SELECT * FROM my_books.books WHERE title LIKE "${title}%";`
 
         connection.query(queryFind, (err, results) => {
             try {
@@ -162,6 +159,6 @@ export async function findBookByName(req: express.Request, res: express.Response
         console.log(error)
         res.status(500).send({ ok: false, error })
     }
-}
+} //work ok
 
 //7.1.24 --> 1:50:50
