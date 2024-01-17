@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import connection from '../../DB/database';
 import jwt from 'jwt-simple';
+import { Results } from '../../util/resultsModel';
 
 const saltRounds = 10;
 
@@ -16,24 +17,21 @@ export async function registerUser(req: any, res: any) {
 
         const query = `INSERT INTO my_books.users (user_name, email, password) VALUES ('${username}' ,'${email}', '${hash}');`;
 
-        connection.query(query, (err, resultsAdd) => {
+        connection.query(query, (err, resultsAdd: Results) => {
             try {
               if (err) throw err;
-                //@ts-ignore
               if (resultsAdd.affectedRows) { 
-                //@ts-ignore
-                const queryUser = `SELECT * FROM users WHERE user_id = ${resultsAdd.insertId}`
+                const queryUser = `SELECT * FROM my_books.users WHERE user_id = ${resultsAdd.insertId}`
                 connection.query(queryUser, (err2, results) => {
                     if (err2) throw err2;
-                    //@ts-ignore  //!2:13:13 lesson 7.1.24
                     const cookie = {userID: resultsAdd.insertId}
                     const token = jwt.encode(cookie, secret)
-
-                    res.cookie("user", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
-                    res.send({ok: true, results})
+                    const resultUserId = results[0].user_id
+                    
+                    res.cookie("userid", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
+                    res.send({ok: true, resultUserId})
                 })
-              }
-             
+              }             
             } catch (error) {
                 res.status(500).send({ok: false, error})
             }
@@ -41,7 +39,7 @@ export async function registerUser(req: any, res: any) {
     } catch (error) {
         res.status(500).send({ok: false, error})
     }
-}
+} //work ok
 
 export async function getUserByCookie(req: any, res: any) {
     try {

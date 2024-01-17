@@ -70,8 +70,6 @@ export async function getOneBook(req: express.Request, res: express.Response) {
     }
 } //work ok
     
-//7.1.24 38:45 update book
-
 export async function updateBook(req: express.Request, res: express.Response) {
     try {
         const { bookId } = req.params;

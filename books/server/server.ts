@@ -28,9 +28,9 @@ app.post("/api/create-database", (req, res) => {
     } catch (error) {
         res.status(500).send({ok: false, error})
     }
-})
+}) //work ok
 
-app.post("/api/create-book-table", (req, res) => {
+app.post("/api/create-books-table", (req, res) => {
     try {
          //should be for admin only
          const {adminPassword} = req.body;
@@ -51,13 +51,38 @@ app.post("/api/create-book-table", (req, res) => {
                 );`
                 connection.query(queryBooks, (err, results) => {
                     if (err) throw err;
-                    res.send({ok: true, message: "book table created!"})
+                    res.send({ok: true, message: "books table created!"})
                 })
          }
     } catch (error) {
         res.status(500).send({ok: false, error}) 
     }
-})
+}) //work ok
+
+app.post("/api/create-users-table", (req, res) => {
+    try {
+          //should be for admin only
+          const {adminPassword} = req.body;
+          if (!adminPassword) throw new Error("no admin password in create database");
+          if (adminPassword === "123456") {
+             const queryUsers = `CREATE TABLE IF NOT EXISTS my_books.users(
+                user_id INT NOT NULL AUTO_INCREMENT,
+                user_name VARCHAR(100) NOT NULL,
+                email VARCHAR(200) NOT NULL,
+                password VARCHAR(500) NOT NULL,
+                PRIMARY KEY (user_id),
+                UNIQUE INDEX user_id_UNIQUE (user_id ASC) VISIBLE,
+                UNIQUE INDEX email_UNIQUE (email ASC) VISIBLE
+                 );`
+                 connection.query(queryUsers, (err, results) => {
+                     if (err) throw err;
+                     res.send({ok: true, message: "users table created!"})
+                 })
+    } 
+    } catch (error) {
+        res.status(500).send({ok: false, error})   
+    }
+}) //work ok
 
 // import creationRouter from "./API/creation/creationRouter"
 // app.use('/api/creation', creationRouter)
