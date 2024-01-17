@@ -2,10 +2,11 @@ import bcrypt from 'bcrypt';
 import connection from '../../DB/database';
 import jwt from 'jwt-simple';
 import { Results } from '../../util/resultsModel';
+import { Request, Response } from 'express';
 
 const saltRounds = 10;
 
-export async function registerUser(req: any, res: any) {
+export async function registerUser(req: Request, res: Response) {
     try {
         const {username, email, password} = req.body;
         if (!username || !email || !password) throw new Error("no data at register user");
@@ -28,7 +29,7 @@ export async function registerUser(req: any, res: any) {
                     const token = jwt.encode(cookie, secret)
                     const resultUserId = results[0].user_id
                     
-                    res.cookie("userid", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
+                    res.cookie("userId", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
                     res.send({ok: true, resultUserId})
                 })
               }             
@@ -41,24 +42,41 @@ export async function registerUser(req: any, res: any) {
     }
 } //work ok
 
-export async function getUserByCookie(req: any, res: any) {
+
+//!not working
+export async function login(req: Request, res: Response) {
     try {
-        const {user} = req.cookies;
+        const {email, password} = req.body;
+        if (!email || !password) throw new Error("no data at login user");
+        
+        const query = `SELECT * FROM my_books.users WHERE email = ${email}`;
+        if (!query) throw new Error("at login, No query provided for user login");       
 
-        const secret = process.env.SECRET
-        if (!secret) throw new Error("no secret")
-        // if ()
-        const decodedId = jwt.decode(user, secret)
-        const {userID} = decodedId;
-        // if ()
-
-        const query = `SELECT * FROM my_book.users WHERE user_id = ${userID}`;
-
-        connection.query(query, (err, results) => {
+        connection.query(query, async (err, results) => {
+            const secret = process.env.SECRET
+            if (!secret) throw new Error("no secret")
+            
             try {
                 if (err) throw err;
+//@ts-ignore
+                if (results.length > 0){
+                    const hash = results[0].password
+                    const match:boolean = await bcrypt.compare(password, hash);
+                    if(!match) throw new Error("at login password incorrect!");
 
-                res.send({ok: true, results: results[0]})
+                    const resultUserId = results[0].user_id
+                    const resultUserName = results[0].user_name
+
+                    const cookie = {resultUserId, resultUserName}
+                    const token = jwt.encode(cookie, secret)
+
+                    res.cookie("userId", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
+                    res.send({ok: true, message: "user login!"})
+                } else {
+                    throw new Error("user not found");
+                    
+                }
+                
             } catch (error) {
                 res.status(500).send({ok: false, error})
             }

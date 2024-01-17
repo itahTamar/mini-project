@@ -30,9 +30,8 @@ const BooksPage = () => {
 
   return (
     <div className='booksPage-container'>
-      here books page component
       <Debouncing setFilterBooks={setFilterBooks} filterBooksState={filterBooksState} />
-      {/* <div className='books-container'>
+      <div className='books-container'>
         {bookState && bookState.length > 0 ?
           (filterBooksState.map((book) => {
             return (
@@ -44,7 +43,7 @@ const BooksPage = () => {
           })) : (
             <p>no book found</p>
           )}
-      </div> */}
+      </div>
     </div>
   )
 }

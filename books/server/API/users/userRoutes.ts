@@ -1,10 +1,11 @@
 import express from "express"
-import { registerUser } from "./userCont"
+import { login, registerUser } from "./userCont"
 
 const router = express.Router()
 
 router
-    .post("/register", registerUser) 
+    .post("/register", registerUser)
+    .get("/login", login) 
 
 //good routing example :/api/users
 
