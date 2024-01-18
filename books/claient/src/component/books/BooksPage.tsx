@@ -3,6 +3,7 @@ import BookCard, { Book } from './BookCard'
 import { useNavigate } from 'react-router-dom'
 import Debouncing from '../debouncing/Debouncing'
 import { getAllBooks } from '../../api/books/booksApi';
+import {handleInsert} from "../../util/books"
 
 const BooksPage = () => {
   const [bookState, setBooks] = useState<Book[]>([])
@@ -13,8 +14,8 @@ const BooksPage = () => {
      try {
       //use axios to get the book list from DB
       const response = await getAllBooks()
-      if(!response) throw new Error("No respose from axios getAllBooks at BooksPage");
-              console.log("At BooksPage/handelGetAllBVooks the response is:", response) //got it
+      if(!response) throw new Error("No response from axios getAllBooks at BooksPage");
+              console.log("At BooksPage/handelGetAllBooks the response is:", response) //got it
   
       //put the list in bookState and filterBooksState
       const bookList: Book[] = response
@@ -30,15 +31,15 @@ const BooksPage = () => {
   }
 
   useEffect(() => {
-    //!add fun how put all the book from my lost itno DB
-    handelGetAllBooks() //start at load page and at reload it
-  }, [])
+    //handleInsert()
+    handelGetAllBooks() 
+  }, []) //only run this effect on the initial render
 
   return (
     <div className='booksPage-container'>
       <Debouncing setFilterBooks={setFilterBooks} BooksState={bookState} />
       <div className='books-container'>
-        {bookState && bookState.length > 0 ?
+        {filterBooksState && bookState.length > 0 ?
           (filterBooksState.map((book) => {
             return (
               <div className='book-card' key={book.title}>

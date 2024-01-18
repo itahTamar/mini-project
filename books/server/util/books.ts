@@ -163,4 +163,27 @@ export const books:Book[] = [
         image: "https://m.media-amazon.com/images/I/416v0HupVTL.jpg",
         genre: "Fiction"
     }, 
-]
+];
+
+function handleInsert() {
+    books.forEach((book) => {
+      insertbook(book);
+    });
+  }
+  
+  async function insertbook(book) {
+    //@ts-ignore
+    const { data } = await axios.post(
+      "http://localhost:4000/api/insert-into-books",
+      {
+        title: book.title,
+        year: book.author,
+        runtime: book.pageNum,
+        director: book.publisher,
+        actors: book.description,
+        plot: book.image,
+        posterUrl: book.genre,
+      }
+    );
+    console.log("seee console");
+  }
