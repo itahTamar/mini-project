@@ -84,21 +84,6 @@ app.post("/api/create-users-table", (req, res) => {
     }
 }) //work ok
 
-// app.post("/api/insert-into-books", (req, res) => {
-//   const { title, author, pageNum, publisher, description, image, genre } = req.body;
-//   const query = `INSERT INTO IF NOT EXISTS my_books.books (title, author, page_num, publisher, description, image, genre ) VALUES ("${title}", ${author}, ${pageNum}, "${publisher}", "${description}", "${image}", "${genre}");`;
-//   connection.query(query, (err, results) => {
-//     try {
-//       if (err) throw err;
-//       // console.log(results);
-//       res.send({ results, ok: true });
-//     } catch (error) {
-//       console.log(error);
-//       res.send({ ok: false, error: error.message });
-//     }
-//   });
-// });
-
 import userRoutes from "./API/users/userRoutes"
 app.use('/api/users', userRoutes);
 

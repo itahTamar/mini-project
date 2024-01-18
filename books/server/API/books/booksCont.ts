@@ -22,9 +22,8 @@ export async function getAllBooks(req: express.Request, res: express.Response) {
 
 export async function addOneBook(req: express.Request, res: express.Response) {
     try {
-        //@ts-ignore
         const { title, author, pageNum, publisher, description, image, genre } = req.body
-        if (!title || !author || !description || !image) throw new Error("no data in function createAllBook in file booksCtrl.ts")
+        if (!title || !author || !description || !image) throw new Error("no data in function addOneBook in file booksCtrl.ts")
 
         const checkQuery = `SELECT * FROM my_books.books WHERE  title = ?`
         connection.query(checkQuery, [title], (err, results) => {
@@ -40,12 +39,14 @@ export async function addOneBook(req: express.Request, res: express.Response) {
                         if (err) throw err;
                         res.send({ ok: true, results })
                     } catch (error) {
+                        console.log(error)
                         res.status(500).send({ ok: false, error })
                     }
                 })
             }
         })
     } catch (error) {
+        console.log(error)
         res.status(500).send({ ok: false, error })
     }
 }  //work ok

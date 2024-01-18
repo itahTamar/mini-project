@@ -3,7 +3,7 @@ import BookCard, { Book } from './BookCard'
 import { useNavigate } from 'react-router-dom'
 import Debouncing from '../debouncing/Debouncing'
 import { getAllBooks } from '../../api/books/booksApi';
-import {handleInsert} from "../../util/books"
+// import {handleInsert} from "../../util/books"
 
 const BooksPage = () => {
   const [bookState, setBooks] = useState<Book[]>([])
@@ -18,7 +18,7 @@ const BooksPage = () => {
               console.log("At BooksPage/handelGetAllBooks the response is:", response) //got it
   
       //put the list in bookState and filterBooksState
-      const bookList: Book[] = response
+      const bookList = response;
       console.log("bookList:", bookList)
       setBooks(bookList)
       setFilterBooks(bookList)
@@ -31,9 +31,10 @@ const BooksPage = () => {
   }
 
   useEffect(() => {
-    //handleInsert()
+    // handleInsert()  
     handelGetAllBooks() 
   }, []) //only run this effect on the initial render
+
 
   return (
     <div className='booksPage-container'>

@@ -16,6 +16,7 @@ interface BookCardProp {
 }
 
 const BookCard: FC<BookCardProp> = ({ book }) => {
+if(book === undefined) throw new Error("At BookCard book is undefined");
 
     return (
         <>

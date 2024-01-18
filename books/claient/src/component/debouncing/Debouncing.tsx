@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 // import { Book } from '../books/BookCard'
 
-export interface Book {
+ interface Book {
   title: string,
   author: string,
   pageNum: number,
@@ -29,8 +29,12 @@ const Debouncing = ({setFilterBooks, booksState}: any) => {
     }
 
     useEffect(() => {
+      if (!textSearch) {
+        setFilterBooks(booksState)
+      } else {
         const request = setTimeout(handleFilter, 2000)
         return () => clearTimeout(request)
+      }
     },[textSearch])
 
   return (

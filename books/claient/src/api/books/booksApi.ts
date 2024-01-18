@@ -6,8 +6,7 @@ export const getAllBooks = async () => {
         const { ok, results } = response.data;
 
         if (ok) {
-            //@ts-ignore
-           return(results)
+           return results
         } else {
             console.error("Error retrieving books:", response.data.error);
         }

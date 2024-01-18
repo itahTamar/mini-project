@@ -1,3 +1,5 @@
+import axios from "axios";
+
 interface Book {
     title: string,
     author: string,
@@ -180,18 +182,19 @@ export function handleInsert() {
   }
   
   async function insertbook(book: Book) {
-    //@ts-ignore
+  
     const { data } = await axios.post(
       "/api/books/addBook",
       {
         title: book.title,
-        year: book.author,
-        runtime: book.pageNum,
-        director: book.publisher,
-        actors: book.description,
-        plot: book.image,
-        posterUrl: book.genre,
+        author: book.author,
+        pageNum: book.pageNum,
+        publisher: book.publisher,
+        description: book.description,
+        image: book.image,
+        genre: book.genre,
       }
     );
     console.log("seee console");
   }
+  
