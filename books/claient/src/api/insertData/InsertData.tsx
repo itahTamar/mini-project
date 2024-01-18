@@ -8,7 +8,7 @@ const booksList = books
 const InsertData =  () => {
 try {    
     booksList.forEach( async (book) => {
-        await axios.post("/api/books/addBooks", book)
+        await axios.post("/api/books/addAllBooks", book)
     })
 } catch (error) {
     console.error('error insert book', error)

@@ -10,6 +10,7 @@ const Login = () => {
     const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         try {
             ev.preventDefault()
+            console.log("At handleSubmit login the email & password are:", email, password)
             const data = await login(email, password)
             console.log(data)
 

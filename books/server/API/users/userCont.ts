@@ -44,7 +44,9 @@ export async function registerUser(req: Request, res: Response) {
 
 export async function login(req: Request, res: Response) {
     try {
+        console.log("hellow from server-login")
         const {email, password} = req.body;
+        console.log("email & password:", email, password)
         if (!email || !password) throw new Error("no data at login user");
         
         const query = `SELECT * FROM my_books.users WHERE email = "${email}"`;
@@ -65,11 +67,11 @@ export async function login(req: Request, res: Response) {
                     const resultUserId = results[0].user_id
                     const resultUserName = results[0].user_name
 
-                    const cookie = {resultUserId, resultUserName}
+                    const cookie = {resultUserId}
                     const token = jwt.encode(cookie, secret)
 
                     res.cookie("userId", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
-                    res.send({ok: true, message: "user login!"})
+                    res.send({ok: true, message: "user login!", resultUserName})
                 } else {
                     throw new Error("user not found");
                     

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { register } from '../../api/users/userApi'
+import { useNavigate } from 'react-router-dom'
 
 //work ok
 
@@ -7,6 +8,8 @@ const Register = () => {
     const [username, setUsername] = useState<string>('')
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
+    const navigate = useNavigate()
+
 
 const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -14,10 +17,10 @@ const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         const data = await register(username, email, password)
         console.log(data)
         
-        // Reset form fields
-        setUsername('');
-        setEmail('');
-        setPassword('');
+        if (!data)throw new Error("register failed");
+        
+        navigate("/login")
+        
     } catch (error) {
         console.error(error)
     }

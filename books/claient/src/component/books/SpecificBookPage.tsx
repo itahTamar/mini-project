@@ -1,20 +1,24 @@
 import { useEffect, useState } from 'react'
 import { Book } from './BookCard';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { deleteBook, getOneBook } from '../../api/books/booksApi';
+import { useNavigate } from 'react-router-dom'
 
 const SpecificBookPage = () => {
   const [bookData, setBookData] = useState<Book>();
+
   let { title } = useParams()
+  let {bookid} = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const specificBook = async () => {
       if (title == undefined) throw new Error("At specificBookPage at specificBook title is undefined");
       try {
-        const response = await axios.get(`/api/books/${title}`);
-        const data: Book = response.data;
-        console.log("At specificBookPage at specificBook the data is: ", data)
-        setBookData(data)
+        const response:Book = await getOneBook(title);
+        console.log("At specificBookPage at specificBook the response is: ", response)
+        setBookData(response)
+        
       } catch (error) {
         console.error("Error fetching specific book:", error)
       }
@@ -23,12 +27,19 @@ const SpecificBookPage = () => {
     specificBook()
   }, [title])
 
-  const handleUpdate(bookId) => {
+  const handleUpdate = async () => {
 
   }
 
-  const handleDelete(bookId) => {
-
+  const handleDelete = async () => {
+    if (bookid == undefined) throw new Error("At specificBookPage at handleDelete, bookid is undefined");
+    try {
+      const response = await deleteBook(bookid);
+      console.log("At specificBookPage at specificBook the data is: ", response)
+      navigate("/booksPage")
+    } catch (error) {
+      console.error("Error fetching specific book:", error)
+    }
   }
 
   return (
@@ -48,7 +59,7 @@ const SpecificBookPage = () => {
         :
         <p>book not found</p>
       }
-      <button onClick={handleUpdate}>Update information</button>
+      <button key={title} onClick={handleUpdate}>Update information</button>
       <button onClick={handleDelete}>Delete Book</button>
     </div>
   )
