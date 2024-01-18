@@ -1,4 +1,5 @@
 import { FC , useState} from 'react'
+import '../../style/bookCard.css'
 
 export interface Book {
     title: string,
@@ -25,7 +26,7 @@ if(book === undefined) throw new Error("At BookCard book is undefined");
                     <img className='book-card-img' src={book.image} alt={book.title}/>
                     <div className='book-card-info'>
                         <h2>{book.title}</h2>
-                        <p>{book.description}</p>                      
+                        <p className='mini-description'>{book.description}</p>                      
                     </div>               
                 </div>  
                 :

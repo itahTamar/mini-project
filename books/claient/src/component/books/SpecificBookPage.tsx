@@ -8,16 +8,16 @@ const SpecificBookPage = () => {
   const [bookData, setBookData] = useState<Book>();
 
   let { title } = useParams()
-  let {bookid} = useParams()
+  let {bookId} = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
     const specificBook = async () => {
       if (title == undefined) throw new Error("At specificBookPage at specificBook title is undefined");
       try {
-        const response:Book = await getOneBook(title);
-        console.log("At specificBookPage at specificBook the response is: ", response)
-        setBookData(response)
+        const response = await getOneBook(title);
+          // console.log("At specificBookPage at specificBook() the response is: ", response) 
+        setBookData(response[0])
         
       } catch (error) {
         console.error("Error fetching specific book:", error)
@@ -32,9 +32,9 @@ const SpecificBookPage = () => {
   }
 
   const handleDelete = async () => {
-    if (bookid == undefined) throw new Error("At specificBookPage at handleDelete, bookid is undefined");
+    if (bookId == undefined) throw new Error("At specificBookPage at handleDelete, bookId is undefined");
     try {
-      const response = await deleteBook(bookid);
+      const response = await deleteBook(bookId);
       console.log("At specificBookPage at specificBook the data is: ", response)
       navigate("/booksPage")
     } catch (error) {
@@ -45,12 +45,12 @@ const SpecificBookPage = () => {
   return (
     <div>
       {bookData != undefined ?
-        <div className='book-card'>
+        <div>
           <img className='book-card-img' src={bookData.image} alt={bookData.title} />
           <div className='book-card-info'>
             <h2>{bookData.title}</h2>
-            <p>Author: {bookData.author}</p>
-            <p>Number of pages: {bookData.pageNum}</p>
+            <p>By {bookData.author}</p>
+            <p>Number of pages: {bookData.page_num}</p>
             <p>publisher: {bookData.publisher}</p>
             <p>genre: {bookData.genre}</p>
             <p>{bookData.description}</p>

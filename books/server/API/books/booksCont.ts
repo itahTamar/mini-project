@@ -59,6 +59,7 @@ export async function getOneBook(req: express.Request, res: express.Response) {
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err
+                    console.log("At getOneBook the results is:", results)
                 res.send({ ok: true, results })
             } catch (error) {
                 console.log(error)
@@ -134,7 +135,7 @@ export async function deleteBook(req: express.Request, res: express.Response) {
     }
 } //work ok
 
-//for the debouncing search (get)
+//for the debouncing search? (get) => not used
 export async function findBookByName(req: express.Request, res: express.Response) {
     try {
         const {title} = req.query;
