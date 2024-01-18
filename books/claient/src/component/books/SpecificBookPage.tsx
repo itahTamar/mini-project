@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const SpecificBookPage = () => {
   const [bookData, setBookData] = useState<Book>();
 
-  let { title } = useParams()
-  let {bookId} = useParams()
+  let { title, book_id } = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -32,9 +31,9 @@ const SpecificBookPage = () => {
   }
 
   const handleDelete = async () => {
-    if (bookId == undefined) throw new Error("At specificBookPage at handleDelete, bookId is undefined");
+    if (book_id === undefined) throw new Error("At specificBookPage at handleDelete, book_id is undefined");
     try {
-      const response = await deleteBook(bookId);
+      const response = await deleteBook(book_id);
       console.log("At specificBookPage at specificBook the data is: ", response)
       navigate("/booksPage")
     } catch (error) {
@@ -60,7 +59,7 @@ const SpecificBookPage = () => {
         <p>book not found</p>
       }
       <button key={title} onClick={handleUpdate}>Update information</button>
-      <button onClick={handleDelete}>Delete Book</button>
+      <button key={book_id} onClick={handleDelete}>Delete Book</button>
     </div>
   )
 }

@@ -39,6 +39,7 @@ const BooksPage = () => {
 
   return (
     <div className='booksPage-container'>
+      <button className='add-book' onClick={() => navigate('/add-book')}>Add another book to your collection</button>
       {/* <Debouncing setFilterBooks={setFilterBooks} BooksState={bookState} /> */}
       <div className='books-container'>
         {filterBooksState && bookState.length > 0 ?
@@ -46,7 +47,7 @@ const BooksPage = () => {
             return (
               <div className='book-card' key={book.title}>
                 <BookCard book={book} />
-                <button onClick={() => { navigate(`/book/${book.title}`) }}>More Info</button>
+                <button onClick={() => { navigate(`/book/${book.title}/${book.book_id}`) }}>More Info</button>
               </div>
             )
           })) : (

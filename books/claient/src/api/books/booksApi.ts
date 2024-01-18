@@ -21,8 +21,8 @@ export const getOneBook = async (title: string) => {
         const { ok, results } = response.data;
 
         if (ok) {
-            //@ts-ignore
-           return(results)
+            
+           return results
         } else {
             console.error("Error retrieving books:", response.data.error);
         }
@@ -31,14 +31,29 @@ export const getOneBook = async (title: string) => {
     }
 };
 
-export const deleteBook = async (bookid: string) => {
+export const deleteBook = async (book_id: string) => {
     try {
-        const response = await axios.get(`/api/books/${bookid}`);
+        const response = await axios.get(`/api/books/${book_id}`);
         const { ok, results } = response.data;
 
         if (ok) {
-            //@ts-ignore
-           return(results)
+          
+           return results
+        } else {
+            console.error("Error retrieving books:", response.data.error);
+        }
+    } catch (error) {
+        console.error("Error:", (error as Error).message);
+    }
+};
+
+export const addBook = async (title: string, author:string, page_num:number, publisher:string, description:string, image:string, genre:string) => {
+    try {
+        const response = await axios.post(`/api/books/addBook`, {title, author, page_num, publisher, description, image, genre});
+        const { ok, results } = response.data;
+
+        if (ok) {
+           return results
         } else {
             console.error("Error retrieving books:", response.data.error);
         }
