@@ -15,9 +15,9 @@ export const getAllBooks = async () => {
     }
 };
 
-export const getOneBook = async (title: string) => {
+export const getOneBook = async (bookId: string) => {
     try {
-        const response = await axios.get(`/api/books/${title}`);
+        const response = await axios.get(`/api/books/${bookId}`);
         const { ok, results } = response.data;
 
         if (ok) {

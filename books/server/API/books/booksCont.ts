@@ -52,10 +52,10 @@ export async function addOneBook(req: express.Request, res: express.Response) {
 }  //work ok
 
 export async function getOneBook(req: express.Request, res: express.Response) {
-    const {title} = req.params;
-    if (!title) throw new Error("no title");
+    const {bookId} = req.params;
+    if (!bookId) throw new Error("no title");
     try {
-        const query = `SELECT * FROM my_books.books WHERE title = "${title}";`
+        const query = `SELECT * FROM my_books.books WHERE book_id = "${bookId}";`
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err

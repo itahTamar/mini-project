@@ -10,7 +10,7 @@ const SpecificBookPage = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [field, setField] = useState<string>();
 
-  let { title, book_id } = useParams()
+  let { book_id } = useParams()
   const navigate = useNavigate()
 
 const handleBtnClick = (fieldName: string) => {
@@ -20,9 +20,9 @@ const handleBtnClick = (fieldName: string) => {
 
   useEffect(() => {
     const specificBook = async () => {
-      if (title === undefined) throw new Error("At specificBookPage at specificBook title is undefined");
+      if (book_id === undefined) throw new Error("At specificBookPage at specificBook title is undefined");
       try {
-        const response = await getOneBook(title);
+        const response = await getOneBook(book_id);
           // console.log("At specificBookPage at specificBook() the response is: ", response) 
         setBookData(response[0])
         
@@ -32,7 +32,7 @@ const handleBtnClick = (fieldName: string) => {
     }
 
     specificBook()
-  }, [title])
+  }, [book_id])
 
   const handleDelete = async () => {
     if (book_id === undefined) throw new Error("At specificBookPage at handleDelete, book_id is undefined");

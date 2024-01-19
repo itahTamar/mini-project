@@ -6,7 +6,7 @@ import {getAllBooks, addOneBook, getOneBook, updateBook, deleteBook, findBookByN
 router
 .get("/getAllBooks", getAllBooks)
 .get("/filter", findBookByName)  
-.get("/:title", getOneBook) //<-- to get a specific book by its title
+.get("/:bookId", getOneBook) //<-- to get a specific book by its title
 .post("/addBook", addOneBook)
 .patch("/:bookId", updateBook)
 .delete("/:bookId", deleteBook)
