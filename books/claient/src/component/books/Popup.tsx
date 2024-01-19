@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { updateBookById } from '../../api/books/booksApi';
+import '../../style/popup.css'
 
 interface FieldProp {
     field: string | undefined;
@@ -11,7 +12,7 @@ const Popup: FC<FieldProp> = ({ field }) => {
     let { book_id } = useParams()
     const navigate = useNavigate()
     if (field === undefined) throw new Error("field is undefined");
-    
+
 
     const handleUpdateAndClose = async () => {
         if (book_id === undefined) throw new Error("At specificBookPage at handleDelete, book_id is undefined");
@@ -26,11 +27,13 @@ const Popup: FC<FieldProp> = ({ field }) => {
         }
     }
     return (
-        <div>
-            <form onSubmit={handleUpdateAndClose}>
-                <input type="text | number" name="update" value={update} onInput={(ev) => setUpdate((ev.target as HTMLInputElement).value)}/>
-                <button type="submit">Update and close</button>
-            </form>
+        <div className='popup'>
+            <div className='popup-inner'>
+                <form onSubmit={handleUpdateAndClose}>
+                    <input type="text | number" name="update" value={update} onInput={(ev) => setUpdate((ev.target as HTMLInputElement).value)} />
+                    <button type="submit">Update and close</button>
+                </form>
+            </div>
         </div>
     )
 }
