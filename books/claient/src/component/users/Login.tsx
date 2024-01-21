@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { login } from '../../api/users/userApi'
 import { useNavigate } from 'react-router-dom'
-// import { handleInsert } from '../../util/books'
+import { handleInsert } from '../../util/books'
 import '../../style/login.css'
 
 const Login = () => {
@@ -17,7 +17,7 @@ const Login = () => {
             console.log(data)
 
             if (!data) throw new Error("login failed, please register first");
-            // handleInsert() 
+            handleInsert() 
             navigate("/booksPage")
 
         } catch (error) {
