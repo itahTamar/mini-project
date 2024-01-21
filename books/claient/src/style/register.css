@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -8,16 +8,16 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .login-form {
+  .register-form {
     display: flex;
     flex-direction: column;
   }
   
-  .login-form label {
+  .register-form label {
     margin-bottom: 8px;
   }
   
-  .login-form input {
+  .register-form input {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -25,8 +25,8 @@
     box-sizing: border-box;
   }
   
-  .login-form button {
-    background-color: #007bff;
+  .register-form button {
+    background-color: #28a745;
     color: white;
     padding: 10px;
     border: none;
@@ -34,8 +34,8 @@
     cursor: pointer;
   }
   
-  .login-form button:hover {
-    background-color: #0056b3;
+  .register-form button:hover {
+    background-color: #218838;
   }
   
   .error-message {
@@ -45,7 +45,7 @@
   
   /* Responsive adjustments */
   @media screen and (max-width: 600px) {
-    .login-container {
+    .register-container {
       max-width: 100%;
     }
   }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addBook } from '../../api/books/booksApi'
-
+import '../../style/addBook.css'
 const AddBook = () => {
     const [title, setTitle] = useState<string>('')
     const [author, setAuthor] = useState<string>("")
@@ -38,6 +38,7 @@ const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
         <input type='text'  placeholder='image URL' value={image} onInput={(ev) => setImage((ev.target as HTMLInputElement).value)}></input>
         <input type='text'  placeholder='genre' value={genre} onInput={(ev) => setGenre((ev.target as HTMLInputElement).value)}></input>
         <button type='submit'>Add your book</button>
+        <button onClick={() => navigate("/booksPage")}>Back</button>
     </form>
   )
 }

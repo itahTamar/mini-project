@@ -43,7 +43,7 @@ const BooksPage = () => {
         {filterBooksState && bookState.length > 0 ?
           (filterBooksState.map((book) => {
             return (
-              <div className='book-card' key={book.title}>
+              <div className='book-card-cover' key={book.title}>
                 <BookCard book={book} />
                 <button onClick={() => { navigate(`/book/${book.title}/${book.book_id}`) }}>More Info</button>
               </div>

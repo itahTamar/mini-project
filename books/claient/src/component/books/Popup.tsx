@@ -30,7 +30,7 @@ const Popup: FC<FieldProp> = ({ field }) => {
         <div className='popup'>
             <div className='popup-inner'>
                 <form onSubmit={handleUpdateAndClose}>
-                    <input type="text | number" name="update" value={update} onInput={(ev) => setUpdate((ev.target as HTMLInputElement).value)} />
+                    <input type="text | number" name="update" value={update} onInput={(ev) => setUpdate((ev.target as HTMLInputElement).value)}/>
                     <button type="submit">Update and close</button>
                 </form>
             </div>
