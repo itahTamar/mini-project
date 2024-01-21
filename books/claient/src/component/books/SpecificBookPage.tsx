@@ -50,6 +50,7 @@ const handleBtnClick = (fieldName: string) => {
       {bookData != undefined ?
         <div>
           <img className='book-card-img' src={bookData.image} alt={bookData.title} />
+          <button onClick={() => handleBtnClick("image")}>✏️</button>
           <div className='book-card-info'>
             <h2>{bookData.title}</h2><button onClick={() => handleBtnClick("title")}>✏️</button>
             <p>By {bookData.author}</p><button onClick={() => handleBtnClick("author")}>✏️</button>

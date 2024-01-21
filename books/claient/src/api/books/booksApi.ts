@@ -13,7 +13,7 @@ export const getAllBooks = async () => {
     } catch (error) {
         console.error("Error:", (error as Error).message);
     }
-};
+}; //work ok
 
 export const getOneBook = async (bookId: string) => {
     try {
@@ -29,7 +29,7 @@ export const getOneBook = async (bookId: string) => {
     } catch (error) {
         console.error("Error:", (error as Error).message);
     }
-};
+}; //work ok
 
 export const deleteBook = async (book_id: string) => {
     try {
@@ -45,7 +45,7 @@ export const deleteBook = async (book_id: string) => {
     } catch (error) {
         console.error("Error:", (error as Error).message);
     }
-};
+}; //work ok
 
 export const addBook = async (title: string, author:string, page_num:number, publisher:string, description:string, image:string, genre:string) => {
     try {
@@ -60,7 +60,7 @@ export const addBook = async (title: string, author:string, page_num:number, pub
     } catch (error) {
         console.error("Error:", (error as Error).message);
     }
-};
+}; //work ok
 
 export const updateBookById = async (book_id:string ,field: string, update:string | number) => {
     try {
@@ -75,4 +75,4 @@ export const updateBookById = async (book_id:string ,field: string, update:strin
     } catch (error) {
         console.error("Error:", (error as Error).message);
     }
-};
+}; //work ok

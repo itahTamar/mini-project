@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-// import { Book } from '../books/BookCard'
 
  interface Book {
+  book_id?: number,
   title: string,
   author: string,
-  pageNum: number,
+  page_num: number,
   publisher: string,
   description: string,
   image: string,
@@ -14,6 +14,9 @@ import { useEffect, useState } from 'react'
 
 const Debouncing = ({setFilterBooks, booksState}: any) => {
     const [textSearch, setTextSearch] = useState('')
+
+    if (booksState === undefined) throw new Error("At debouncing the bookState is undefined");
+    
 
     const handleFilter = () => {
         if (!textSearch) {

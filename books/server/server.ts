@@ -1,5 +1,6 @@
 import express from 'express';
 import cookieParser = require("cookie-parser")
+import {books} from './util/books'
 
 require('dotenv').config();
 
@@ -89,6 +90,29 @@ app.use('/api/users', userRoutes);
 
 import booksRoutes from "./API/books/booksRoutes"
 app.use('/api/books', booksRoutes);
+
+import { addOneBook } from './API/books/booksCont';
+
+app.post("/api/insert-books-list", (req, res) =>{
+    try {
+        const booksList = books
+    if (!books) throw new Error("no books.ts found");
+    booksList.forEach( (book) => {
+        const queryBook = `INSERT INTO IF NOT EXISTS my_books.books (title, author, page_num, publisher, description, image, genre) VALUES ("${book.title}", "${book.author}", "${book.page_num}", "${book.publisher}", "${book.description}", "${book.image}", "${book.genre}");`
+
+        connection.query(queryBook, (err, results) => {
+            if (err) throw err;
+            res.send({ok: true, message: "books list inserted!"})
+        })
+    }) 
+    } catch (error) {
+        res.status(500).send({ok: false, error})   
+        
+    }
+   
+    
+}) //not working
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);

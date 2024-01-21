@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import BookCard, { Book } from './BookCard'
 import { useNavigate } from 'react-router-dom'
-// import Debouncing from '../debouncing/Debouncing'
+import Debouncing from '../debouncing/Debouncing'
 import { getAllBooks } from '../../api/books/booksApi';
-// import {handleInsert} from "../../util/books"
 import '../../style/booksPage.css'
 
 const BooksPage = () => {
@@ -31,8 +30,7 @@ const BooksPage = () => {
     }
   }
 
-  useEffect(() => {
-    // handleInsert()  
+  useEffect(() => { 
     handelGetAllBooks() 
   }, []) //only run this effect on the initial render
 

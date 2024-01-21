@@ -2,6 +2,7 @@ import { FC } from 'react'
 import '../../style/bookCard.css'
 
 export interface Book {
+    book_id?: number,
     title: string,
     author: string,
     page_num: number,
