@@ -175,26 +175,27 @@ export const books:Book[] = [
     }, 
 ];
 
-export function handleInsert() {
-    books.forEach((book) => {
-      insertbook(book);
-    });
-  }
+    //for local use only
+// export function handleInsert() {
+//     books.forEach((book) => {
+//       insertbook(book);
+//     });
+//   }
   
-  async function insertbook(book: Book) {
+//   async function insertbook(book: Book) {
   
-    const { data } = await axios.post(
-      "/api/books/addBook",
-      {
-        title: book.title,
-        author: book.author,
-        page_num: book.page_num,
-        publisher: book.publisher,
-        description: book.description,
-        image: book.image,
-        genre: book.genre,
-      }
-    );
-    console.log("seee console");
-  }
+//     const { data } = await axios.post(
+//       "/api/books/addBook",
+//       {
+//         title: book.title,
+//         author: book.author,
+//         page_num: book.page_num,
+//         publisher: book.publisher,
+//         description: book.description,
+//         image: book.image,
+//         genre: book.genre,
+//       }
+//     );
+//     console.log("seee console");
+//   }
   
