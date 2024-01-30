@@ -1,0 +1,1 @@
+export const allowedOrigins = ["https://book-list-u5sd.onrender.com"]

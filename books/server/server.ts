@@ -1,6 +1,7 @@
 import express from 'express';
 import cookieParser = require("cookie-parser")
 import {books} from './util/books'
+import { corsOptions } from './config/corsOrptions';
 
 require('dotenv').config();
 
@@ -8,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 import connection from './DB/database';
