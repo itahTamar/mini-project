@@ -37,6 +37,7 @@ const BooksPage = () => {
 
   return (
     <div className='booksPage-container'>
+      <h1> Welcome to your Book List </h1>
       <button className='add-book' onClick={() => navigate('/add-book')}>Add another book to your collection</button>
       {/* <Debouncing setFilterBooks={setFilterBooks} BooksState={bookState} /> */}
       <div className='books-container'>

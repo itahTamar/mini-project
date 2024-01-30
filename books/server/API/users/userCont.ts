@@ -25,11 +25,12 @@ export async function registerUser(req: Request, res: Response) {
                 const queryUser = `SELECT * FROM my_books.users WHERE user_id = ${resultsAdd.insertId}`
                 connection.query(queryUser, (err2, results) => {
                     if (err2) throw err2;
-                    const cookie = {userID: resultsAdd.insertId}
-                    const token = jwt.encode(cookie, secret)
+            //don't use cookie on render diploy
+                    //const cookie = {userID: resultsAdd.insertId}
+                    //const token = jwt.encode(cookie, secret)
                     const resultUserId = results[0].user_id
                     
-                    res.cookie("userId", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
+                    //res.cookie("userId", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
                     res.send({ok: true, resultUserId})
                 })
               }             
@@ -67,11 +68,12 @@ export async function login(req: Request, res: Response) {
                     const resultUserId = results[0].user_id
                     const resultUserName = results[0].user_name
 
-                    const cookie = {resultUserId}
-                    const token = jwt.encode(cookie, secret)
+            //don't use cookie on render diploy
+                    //const cookie = {resultUserId}
+                   // const token = jwt.encode(cookie, secret)
 
-                    res.cookie("userId", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
-                    res.send({ok: true, message: "user login!", resultUserName})
+                    //res.cookie("userId", token, {httpOnly: true, maxAge: 1000 * 60 * 60})
+                    res.send({ok: true, message: "user login!", resultUserName, resultUserId})
                 } else {
                     throw new Error("user not found");
                     

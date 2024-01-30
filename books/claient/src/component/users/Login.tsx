@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { login } from '../../api/users/userApi'
 import { useNavigate } from 'react-router-dom'
-import { handleInsert } from '../../util/books'
+//import { handleInsert } from '../../util/books'
 import '../../style/login.css'
 
 const Login = () => {
@@ -14,10 +14,10 @@ const Login = () => {
             ev.preventDefault()
             console.log("At handleSubmit login the email & password are:", email, password)
             const data = await login(email, password)
-            console.log(data)
+            console.log("At login.tsd data is:" , data)
 
             if (!data) throw new Error("login failed, please register first");
-            handleInsert() 
+                //handleInsert()  //use only in local
             navigate("/booksPage")
 
         } catch (error) {

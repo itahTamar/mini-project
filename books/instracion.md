@@ -6,3 +6,8 @@ for creating a SQL DB do the next steps:
 
 all need to do with admin password:
 "adminPassword": "123456"
+
+
+Notes to myself:
+1) because diploying in render i coment the cookie
+2) i dont relly use the cookie in my code!
