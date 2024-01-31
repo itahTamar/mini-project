@@ -5,7 +5,7 @@ export const corsOptions = {
         if(allowedOrigins.indexOf(origin) !== -1 || !origin) {
             callback(null, true)
         } else {
-            callback(new Error('nOT ALLOWED BY cors'))
+            callback(new Error('NOT ALLOWED BY CORS'))
         }
     },
     credentials: true,

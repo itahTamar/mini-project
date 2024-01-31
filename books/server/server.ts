@@ -1,9 +1,9 @@
 import express from 'express';
+import cors from "cors";
 import cookieParser = require("cookie-parser")
 import {books} from './util/books'
-import { corsOptions } from './config/corsOrptions';
-
 require('dotenv').config();
+import { corsOptions } from './config/corsOrptions';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 4000;
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
+
 import connection from './DB/database';
 
 //should be route to creationRouter and connect to creationCont where the function should be
