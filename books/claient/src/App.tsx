@@ -2,6 +2,7 @@ import {RouterProvider} from 'react-router-dom'
 import {router} from './router/router'
 import './App.css'
 import { disableReactDevTools } from '@fvilers/disable-react-devtools'
+import 'react-dotenv';
 
 let environment = "PROD"
 
