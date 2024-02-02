@@ -2,11 +2,17 @@ import {RouterProvider} from 'react-router-dom'
 import {router} from './router/router'
 import './App.css'
 import { disableReactDevTools } from '@fvilers/disable-react-devtools'
-import 'react-dotenv';
+// import 'react-dotenv';
 
 let environment = "PROD"
+// const serverUrlDev: string = import.meta.env.SERVER_URL_DEV
+// const serverUrlProb: string = import.meta.env.SERVER_URL_PROD
 
-environment === "DEV" ? process.env.SERVER_URL_DEV : process.env.SERVER_URL_PROD
+let SERVER_URL: string;
+
+environment === "DEV" ? SERVER_URL = "http://localhost:8000" : SERVER_URL = "https://book-list-server-2ab5.onrender.com"
+
+// environment === "DEV" ? serverUrlDev : serverUrlProb
 disableReactDevTools()
 
 function App() {

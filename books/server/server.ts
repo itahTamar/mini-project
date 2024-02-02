@@ -3,7 +3,7 @@ import cors from "cors";
 import cookieParser = require("cookie-parser")
 import {books} from './util/books'
 require('dotenv').config();
-import { corsOptions } from './config/corsOrptions';
+import { corsOptions } from './config/corsOptions';
 
 const app = express();
 const PORT = process.env.PORT;
