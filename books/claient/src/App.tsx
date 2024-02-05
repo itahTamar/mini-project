@@ -8,9 +8,7 @@ let environment = "PROD"
 // const serverUrlDev: string = import.meta.env.SERVER_URL_DEV
 // const serverUrlProb: string = import.meta.env.SERVER_URL_PROD
 
-let SERVER_URL: string;
-
-environment === "DEV" ? SERVER_URL = "http://localhost:8000" : SERVER_URL = "https://book-list-server-2ab5.onrender.com"
+environment === "DEV" ? "http://localhost:8000" : "https://book-list-server-2ab5.onrender.com"
 
 // environment === "DEV" ? serverUrlDev : serverUrlProb
 disableReactDevTools()
