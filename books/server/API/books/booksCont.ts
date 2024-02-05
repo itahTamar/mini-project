@@ -4,7 +4,7 @@ import { books } from "../../util/books"
 
 export async function getAllBooks(req: express.Request, res: express.Response) {
     try {
-        const query = "SELECT * FROM my_books.books"
+        const query = "SELECT * FROM books"
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err
@@ -25,7 +25,7 @@ export async function addOneBook(req: express.Request, res: express.Response) {
         const { title, author, page_num, publisher, description, image, genre } = req.body
         if (!title || !author || !description || !image) throw new Error("no data in function addOneBook in file booksCtrl.ts")
 
-        const checkQuery = `SELECT * FROM my_books.books WHERE  title = ?`
+        const checkQuery = `SELECT * FROM books WHERE  title = ?`
         connection.query(checkQuery, [title], (err, results) => {
             if (err) throw err;
             //@ts-ignore
@@ -33,7 +33,7 @@ export async function addOneBook(req: express.Request, res: express.Response) {
                 res.status(409).send({ ok: false, message: "Book already exists" });
             }
             else {
-                const query = `INSERT INTO my_books.books (title, author, page_num, publisher, description, image, genre) VALUES ('${title}', '${author}', ${page_num}, '${publisher}', "${description}", '${image}', '${genre}');`;
+                const query = `INSERT INTO books (title, author, page_num, publisher, description, image, genre) VALUES ('${title}', '${author}', ${page_num}, '${publisher}', "${description}", '${image}', '${genre}');`;
                 connection.query(query, (err, results) => {
                     try {
                         if (err) throw err;
@@ -55,7 +55,7 @@ export async function getOneBook(req: express.Request, res: express.Response) {
     const {bookId} = req.params;
     if (!bookId) throw new Error("no title");
     try {
-        const query = `SELECT * FROM my_books.books WHERE book_id = "${bookId}";`
+        const query = `SELECT * FROM books WHERE book_id = "${bookId}";`
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err
@@ -78,13 +78,13 @@ export async function updateBook(req: express.Request, res: express.Response) {
         if (!bookId) throw new Error("No Id provided on updateBook");
         const { field, update } = req.body;
         if (!field || !update) throw new Error("No field or update provided on updateBook");
-        const query = `UPDATE my_books.books SET ${field} = '${update}' WHERE (book_id = ${bookId});`;
+        const query = `UPDATE books SET ${field} = '${update}' WHERE (book_id = ${bookId});`;
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err;
                 //@ts-ignore
                 if (results.changedRows) {
-                    const queryUpdateBook = `SELECT * from my_books.books WHERE (book_id = ${bookId});`
+                    const queryUpdateBook = `SELECT * from books WHERE (book_id = ${bookId});`
                     connection.query(queryUpdateBook, (err2, results2) => {
                         try {
                             if (err2) throw err2;
@@ -113,7 +113,7 @@ export async function deleteBook(req: express.Request, res: express.Response) {
         const {bookId} = req.params;
         if (!bookId) throw new Error("no Id")
 
-        const query = `DELETE FROM my_books.books WHERE (book_id = ${bookId});`;
+        const query = `DELETE FROM books WHERE (book_id = ${bookId});`;
 
         connection.query(query, (err, results) => {
             try {
@@ -145,7 +145,7 @@ export async function findBookByName(req: express.Request, res: express.Response
         // %{x} - start with something and end with x
         // %{x}% - search everything that may have x in it
 
-        const queryFind = `SELECT * FROM my_books.books WHERE title LIKE "${title}%";`
+        const queryFind = `SELECT * FROM books WHERE title LIKE "${title}%";`
 
         connection.query(queryFind, (err, results) => {
             try {

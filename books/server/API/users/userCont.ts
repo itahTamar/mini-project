@@ -16,7 +16,7 @@ export async function registerUser(req: Request, res: Response) {
 
         const hash = await bcrypt.hash(password, saltRounds)
 
-        const query = `INSERT INTO my_books.users (user_name, email, password) VALUES ('${username}' ,'${email}', '${hash}');`;
+        const query = `INSERT INTO users (user_name, email, password) VALUES ('${username}' ,'${email}', '${hash}');`;
 
         connection.query(query, (err, resultsAdd: Results) => {
             try {
@@ -50,7 +50,7 @@ export async function login(req: Request, res: Response) {
         console.log("email & password:", email, password)
         if (!email || !password) throw new Error("no data at login user");
         
-        const query = `SELECT * FROM my_books.users WHERE email = "${email}"`;
+        const query = `SELECT * FROM users WHERE email = "${email}"`;
         if (!query) throw new Error("at login, No query provided for user login");       
 
         connection.query(query, async (err, results) => {
