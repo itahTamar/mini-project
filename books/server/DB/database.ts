@@ -3,10 +3,11 @@ import  mysql  from 'mysql2';
 const sqlpassword = process.env.SQLPASSWORD;
 
 const connection = mysql.createConnection({
-    host: "localhost",
+    host: "sql11.freemysqlhosting.net",
     port: 3306,
-    user: "root",
+    user: "sql11681026",
     password: sqlpassword,
+    database: "sql11681026"
 })
 
 connection.connect((err) => {
