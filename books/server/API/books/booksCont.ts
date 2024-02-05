@@ -1,10 +1,10 @@
 import express from 'express'
 import connection from '../../DB/database'
-import { books } from "../../util/books"
+// import { books } from "../../util/books"
 
 export async function getAllBooks(req: express.Request, res: express.Response) {
     try {
-        const query = "SELECT * FROM books"
+        const query = "SELECT * FROM books;"
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err
@@ -25,7 +25,7 @@ export async function addOneBook(req: express.Request, res: express.Response) {
         const { title, author, page_num, publisher, description, image, genre } = req.body
         if (!title || !author || !description || !image) throw new Error("no data in function addOneBook in file booksCtrl.ts")
 
-        const checkQuery = `SELECT * FROM books WHERE  title = ?`
+        const checkQuery = `SELECT * FROM books WHERE  title = ? ;`
         connection.query(checkQuery, [title], (err, results) => {
             if (err) throw err;
             //@ts-ignore
