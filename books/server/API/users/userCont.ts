@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import connection from '../../DB/database';
-import jwt from 'jwt-simple';
+// import jwt from 'jwt-simple';
 import { Results } from '../../util/resultsModel';
 import { Request, Response } from 'express';
 
@@ -22,10 +22,10 @@ export async function registerUser(req: Request, res: Response) {
             try {
               if (err) throw err;
               if (resultsAdd.affectedRows) { 
-                const queryUser = `SELECT * FROM my_books.users WHERE user_id = ${resultsAdd.insertId}`
+                const queryUser = `SELECT * FROM users WHERE user_id = ${resultsAdd.insertId}`
                 connection.query(queryUser, (err2, results) => {
                     if (err2) throw err2;
-            //don't use cookie on render diploy
+            //don't use cookie on render deploy
                     //const cookie = {userID: resultsAdd.insertId}
                     //const token = jwt.encode(cookie, secret)
                     const resultUserId = results[0].user_id
@@ -45,7 +45,7 @@ export async function registerUser(req: Request, res: Response) {
 
 export async function login(req: Request, res: Response) {
     try {
-        console.log("hellow from server-login")
+        console.log("hallow from server-login")
         const {email, password} = req.body;
         console.log("email & password:", email, password)
         if (!email || !password) throw new Error("no data at login user");
@@ -68,7 +68,7 @@ export async function login(req: Request, res: Response) {
                     const resultUserId = results[0].user_id
                     const resultUserName = results[0].user_name
 
-            //don't use cookie on render diploy
+            //don't use cookie on render deploy
                     //const cookie = {resultUserId}
                    // const token = jwt.encode(cookie, secret)
 
