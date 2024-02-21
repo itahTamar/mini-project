@@ -2,6 +2,7 @@ import express from "express";
 const app = express();
 const port = process.env.PORT || 3000;
 import mongoose from 'mongoose';  //connect to mongoDB
+require('dotenv').config();
 
 //static files
 app.use(express.static("PUBLIC"))
@@ -9,8 +10,9 @@ app.use(express.static("PUBLIC"))
 //body
 app.use(express.json())
 
+
 //connect to mongoDB with mongoose
-mongoose.connect("mongodb+srv://tamar:Vxv7cpZuEp9uY1eZ@cluster0.85tiuhl.mongodb.net")
+mongoose.connect(process.env.MONGO)
 
 .then(()=>{
   console.info("MongoDB connected")
